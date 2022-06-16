@@ -1,0 +1,349 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Inicio index */
+.bodyIndex {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+}
+.tituloPrincipal {
+  font-size: 4rem;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin-top: 4rem;
+  position: relative;
+  z-index: 2;
+}
+.mainIndex{
+  min-height: 100vh;
+  position: relative;
+}
+.video {
+  position: fixed;
+  top: 50%; left: 50%;
+  z-index: 1;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  filter: brightness(50%);
+  object-fit:cover;
+  transform: translate(-50%, -50%);
+}
+
+/* Fin Index */
+/* Inicio Loader */
+.contendor_loader {
+  background-color: #dedede;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  transition: all 1.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  animation: loader 1.5s infinite ease-in-out;
+}
+.loader {
+  color: #4585fa;
+  font-size: 13px;
+  position: relative;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+.loader:before {
+  left: -3.5em;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
+
+@keyframes loader{
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+/* Fin Loader */
+
+
+.main {
+  font-family: "Nuosu SIL", serif;
+  background: #e0e0e0;
+  background-image: url(./img/background.webp);
+  background-size: fill;
+}
+
+
+.contenedor {
+  max-width: 90%;
+  margin: 40px auto 100px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.contenedor .pelicula {
+  text-align: center;
+}
+.contenedor .serie {
+  text-align: center;
+}
+
+.contenedor .pelicula .titulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(39, 38, 38);
+  font-family: "Nuosu SIL", serif;
+}
+.contenedor .serie .titulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(39, 38, 38);
+  font-family: "Nuosu SIL", serif;
+}
+
+.contenedor .pelicula .poster {
+  max-width: 100%;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  border: 2px solid #0c0c0c;
+}
+.contenedor .serie .poster {
+  max-width: 100%;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  border: 2px solid #0c0c0c;
+}
+.btnVerMas {
+  background: #241744;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.btnVerMas:hover {
+  background: #137c32;
+}
+
+/* .contenido {
+  display: flex;
+  flex-direction: column;
+} */
+/* .btnP {
+  position: relative;
+  top: 50%;
+  left: 25%;
+  background: #241744;
+  color: #fff;
+  border: none;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 15px;
+  font-size: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 2;
+} */
+/* .btnS {
+  position: relative;
+  top: 50%;
+  left: 55%;
+  background: #241744;
+  color: #fff;
+  border: none;
+  padding: 50px;
+  padding-left: 70px;
+  padding-right: 70px;
+  margin: 20px;
+  border-radius: 15px;
+  font-size: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 2;
+} */
+
+
+.imgS {
+  position: absolute;
+  max-width: 250px;
+  top: 45%;
+  left: 80%;
+  z-index: 2;
+  border-radius: 1%;
+  filter: brightness(60%);
+  opacity: 0.7;
+}
+.imgP {
+  position: absolute;
+  max-width: 450px;
+  max-height: 350px;
+  top: 55%;
+  left: 5%;
+  z-index: 2;
+  border-radius: 1%;
+  filter: brightness(70%);
+  opacity: 0.7;
+}
+.btnP .imgP:hover {
+  opacity: 1;
+  filter: brightness(100%);
+}
+.btnS .imgS:hover {
+  opacity: 1;
+  filter: brightness(100%);
+}
+
+
+.paginacion {
+  position: fixed;
+  bottom: 0;
+  background: #100a1f;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.paginacion button {
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 50px;
+  width: 200px;
+  background: #241744;
+  color: #fff;
+  border-radius: 100px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  transition: 0.3s ease all;
+}
+
+.paginacion button:hover {
+  background: #137c32;
+}
+
+@media screen and (max-width: 768px) {
+  .imgS {
+    position: absolute;
+    padding: 0px;
+    max-width: 130px;
+    top: 70%;
+    left: 50%;
+    z-index: 2;
+    border-radius: 1%;
+    filter: brightness(60%);
+    opacity: 0.7;
+  }
+  .imgP {
+    position: absolute;
+    padding: 0px;
+    max-width: 200px;
+    top: 80%;
+    left: 0%;
+    z-index: 2;
+    border-radius: 1%;
+    filter: brightness(70%);
+    opacity: 0.7;
+  }
+  .btnP .imgP:hover {
+    opacity: 1;
+    filter: brightness(100%);
+  }
+  .btnS .imgS:hover {
+    opacity: 1;
+    filter: brightness(100%);
+  }
+  .contenedor {
+    max-width: 90%;
+    margin: 40px auto 100px auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+  
+  .contenedor .pelicula .titulo {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(39, 38, 38);
+    font-family: "Nuosu SIL", serif;
+  }
+  .contenedor .serie .titulo {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(39, 38, 38);
+    font-family: "Nuosu SIL", serif;
+  }
+  .btnVerMas {
+    background: #241744;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .tituloSwalSerie {
+    font-size: 1rem;
+  }
+  .sinopsisSeries {
+    font-size: 0.8rem;
+  }
+  .tituloSwalMovie {
+    font-size: 1rem;
+  }
+  .sinopsisMovie {
+    font-size: 0.8rem;
+  }
+  .imdb{
+    font-size: 0.7rem;
+  }
+  .datosImdb {
+    font-size: 0.7rem;
+  }
+  .video {
+    position: fixed;
+    /* top: 1;
+    left: 100%; */
+    width: 100%;
+    height: 50%;
+    /* object-fit: cover; */
+    filter: brightness(50%);
+    
+    
+  }
+}

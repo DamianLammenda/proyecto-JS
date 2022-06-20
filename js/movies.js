@@ -28,11 +28,8 @@ const cargarPeliculas = async () => {
     );
 
     console.log(respuesta);
-
-    // Si la respuesta es correcta
     if (respuesta.status === 200) {
       const datos = await respuesta.json();
-
       let peliculas = "";
       datos.results.forEach((pelicula) => {
         peliculas += `
@@ -49,7 +46,7 @@ const cargarPeliculas = async () => {
       for (let i = 0; i < btnVerMas.length; i++) {
         btnVerMas[i].addEventListener("click", () => {
           Swal.fire({
-            html: `<span class="imdb">IMDB: </span><span class="datosImdb">${datos.results[i].vote_average}</span>
+            html: `<span class="imdb">IMDB: </span><span class="datosImdb">${datos.results[i].vote_average}</span> 
 						<br>						
 						<h1 class="tituloSwalMovie"> ${datos.results[i].title}</h1>
 						<br>
@@ -70,7 +67,6 @@ const cargarPeliculas = async () => {
     }
   } catch (error) {
     console.log(error);
-  }
+  }  
 };
-
 cargarPeliculas();

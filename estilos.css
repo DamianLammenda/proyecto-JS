@@ -259,8 +259,8 @@
   .imgS {
     position: absolute;
     padding: 0px;
-    max-width: 130px;
-    top: 70%;
+    max-width: 110px;
+    top: 68%;
     left: 50%;
     z-index: 2;
     border-radius: 1%;
@@ -270,8 +270,8 @@
   .imgP {
     position: absolute;
     padding: 0px;
-    max-width: 200px;
-    top: 80%;
+    max-width: 170px;
+    top: 75%;
     left: 0%;
     z-index: 2;
     border-radius: 1%;

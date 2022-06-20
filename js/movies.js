@@ -2,6 +2,10 @@ let pagina = 1;
 const btnAnterior = document.getElementById("btnAnterior");
 const btnSiguiente = document.getElementById("btnSiguiente");
 const btnInicio = document.getElementById("btnInicio");
+const form = document.getElementById("form");
+const search = document.getElementById("search");
+const buscarUrl = "https://api.themoviedb.org/3/search/movie?api_key=ab615ab136c6a4dd4fdcea3d3afd2ef0&language=es-MX&query=";
+
 btnInicio.addEventListener("click", () => {
   window.location.href = "../index.html";});
 
@@ -27,7 +31,7 @@ const cargarPeliculas = async () => {
       `https://api.themoviedb.org/3/movie/popular?api_key=ab615ab136c6a4dd4fdcea3d3afd2ef0&language=es-MX&page=${pagina}&append_to_response=overview`
     );
 
-    console.log(respuesta);
+    //console.log(respuesta);
     if (respuesta.status === 200) {
       const datos = await respuesta.json();
       let peliculas = "";
@@ -39,8 +43,10 @@ const cargarPeliculas = async () => {
 				<button class="btnVerMas">Ver más</button>		
 				</div>`;
       });
+      
 
-      document.getElementById("contenedor").innerHTML = peliculas;
+      let contenedor = document.getElementById("contenedor");
+      contenedor.innerHTML = peliculas;
 
       const btnVerMas = document.getElementsByClassName("btnVerMas");
       for (let i = 0; i < btnVerMas.length; i++) {
@@ -63,10 +69,23 @@ const cargarPeliculas = async () => {
             confirmButtonText: "Cerrar",
           });
         });
+        
       }
+      
     }
+    
   } catch (error) {
-    console.log(error);
+    console.log("error");
   }  
 };
+//No carga la peliculas
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const busqueda = search.value;
+  if (busqueda){
+    cargarPeliculas(buscarUrl + busqueda);
+    
+  }
+});
+
 cargarPeliculas();

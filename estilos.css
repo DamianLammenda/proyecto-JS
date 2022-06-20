@@ -90,6 +90,24 @@
 }
 /* Fin Loader */
 
+header {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color : #100a1f;
+}
+.search {
+  background-color: transparent;
+  border: 2px solid #241744;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  color: white;
+}
+.search:focus {
+  outline: 0;
+  background-color: #241744;
+}
 
 .main {
   font-family: "Nuosu SIL", serif;
@@ -263,9 +281,21 @@
     min-height: 90vh;
     position: relative;
   }
-  .swal-wide{
-    width:300px;
-}
+  header {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    background-color : #100a1f;
+  }
+  .search {
+    background-color: transparent;
+    border: 2px solid #241744;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    color: white;
+  }
+ 
   .imgS {
     position: absolute;
     padding: 0px;

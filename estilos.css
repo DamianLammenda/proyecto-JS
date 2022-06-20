@@ -254,14 +254,24 @@
 .paginacion button:hover {
   background: #137c32;
 }
+.swal-wide{
+  width:850px;
+}
 
 @media screen and (max-width: 768px) {
+  .mainIndex{
+    min-height: 90vh;
+    position: relative;
+  }
+  .swal-wide{
+    width:300px;
+}
   .imgS {
     position: absolute;
     padding: 0px;
     max-width: 110px;
     top: 68%;
-    left: 50%;
+    left: 60%;
     z-index: 2;
     border-radius: 1%;
     filter: brightness(60%);

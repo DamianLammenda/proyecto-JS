@@ -29,10 +29,7 @@ const cargarPeliculas = async () => {
   try {
     const respuesta = await fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=ab615ab136c6a4dd4fdcea3d3afd2ef0&language=es-MX&page=${pagina}&append_to_response=overview`
-    );
-
-    //console.log(respuesta);
-    if (respuesta.status === 200) {
+    );    
       const datos = await respuesta.json();
       let peliculas = "";
       datos.results.forEach((pelicula) => {
@@ -43,12 +40,19 @@ const cargarPeliculas = async () => {
 				<button class="btnVerMas">Ver más</button>		
 				</div>`;
       });
-      
-
       let contenedor = document.getElementById("contenedor");
       contenedor.innerHTML = peliculas;
+      
+      verMas(datos);
+    }
+  
+   catch (error) {
+    console.log(error);
+  } 
+};
 
-      const btnVerMas = document.getElementsByClassName("btnVerMas");
+function verMas(datos){
+  const btnVerMas = document.getElementsByClassName("btnVerMas");
       for (let i = 0; i < btnVerMas.length; i++) {
         btnVerMas[i].addEventListener("click", () => {
           Swal.fire({
@@ -64,28 +68,11 @@ const cargarPeliculas = async () => {
             background: "black",
             color: "#fff",
             imageAlt: datos.results[i].title,
-            animation: false,
             showConfirmButton: true,
             confirmButtonText: "Cerrar",
           });
         });
-        
       }
-      
-    }
-    
-  } catch (error) {
-    console.log("error");
-  }  
-};
-//No carga la peliculas
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const busqueda = search.value;
-  if (busqueda){
-    cargarPeliculas(buscarUrl + busqueda);
-    
-  }
-});
+}
 
 cargarPeliculas();

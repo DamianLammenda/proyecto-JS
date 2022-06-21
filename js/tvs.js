@@ -26,10 +26,6 @@ const cargarSeries = async () => {
     const respuesta = await fetch(
       `https://api.themoviedb.org/3/tv/popular?api_key=ab615ab136c6a4dd4fdcea3d3afd2ef0&language=es-MX&page=${pagina}&append_to_response=overview`
     );
-
-    console.log(respuesta);
-
-    // Si la respuesta es correcta
     if (respuesta.status === 200) {
       const datos = await respuesta.json();
 

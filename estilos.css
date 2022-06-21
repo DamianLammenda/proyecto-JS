@@ -172,44 +172,6 @@ header {
   background: #137c32;
 }
 
-/* .contenido {
-  display: flex;
-  flex-direction: column;
-} */
-/* .btnP {
-  position: relative;
-  top: 50%;
-  left: 25%;
-  background: #241744;
-  color: #fff;
-  border: none;
-  padding: 50px;
-  margin: 20px;
-  border-radius: 15px;
-  font-size: 2rem;
-  font-weight: 500;
-  cursor: pointer;
-  z-index: 2;
-} */
-/* .btnS {
-  position: relative;
-  top: 50%;
-  left: 55%;
-  background: #241744;
-  color: #fff;
-  border: none;
-  padding: 50px;
-  padding-left: 70px;
-  padding-right: 70px;
-  margin: 20px;
-  border-radius: 15px;
-  font-size: 2rem;
-  font-weight: 500;
-  cursor: pointer;
-  z-index: 2;
-} */
-
-
 .imgS {
   position: absolute;
   max-width: 250px;
@@ -272,9 +234,6 @@ header {
 .paginacion button:hover {
   background: #137c32;
 }
-.swal-wide{
-  width:850px;
-}
 
 @media screen and (max-width: 768px) {
   .mainIndex{
@@ -326,6 +285,15 @@ header {
     opacity: 1;
     filter: brightness(100%);
   }
+  .btninicio {
+    font-size: 0.7rem;
+  }
+  .btnAnterior {
+    font-size: 0.7rem;
+  }
+  .btnSiguiente {
+    font-size: 0.7rem;
+  }
   .contenedor {
     max-width: 90%;
     margin: 40px auto 100px auto;
@@ -353,7 +321,7 @@ header {
     padding: 10px;
     margin: 20px;
     border-radius: 15px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 500;
     cursor: pointer;
   }
@@ -370,20 +338,15 @@ header {
     font-size: 0.8rem;
   }
   .imdb{
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   .datosImdb {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   .video {
     position: fixed;
-    /* top: 1;
-    left: 100%; */
     width: 100%;
     height: 50%;
-    /* object-fit: cover; */
     filter: brightness(50%);
-    
-    
   }
 }

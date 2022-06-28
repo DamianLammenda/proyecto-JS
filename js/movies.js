@@ -4,7 +4,8 @@ const btnSiguiente = document.getElementById("btnSiguiente");
 const btnInicio = document.getElementById("btnInicio");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
-const buscarUrl = "https://api.themoviedb.org/3/search/movie?api_key=ab615ab136c6a4dd4fdcea3d3afd2ef0&language=es-MX&query=";
+const btnSearch = document.getElementsByClassName("btnSearch");
+const buscarUrl = `https://api.themoviedb.org/3/search/movie?api_key=ab615ab136c6a4dd4fdcea3d3afd2ef0&language=es-MX&page=${pagina}&query=`;
 
 btnInicio.addEventListener("click", () => {
   window.location.href = "../index.html";});
@@ -48,7 +49,9 @@ const cargarPeliculas = async () => {
   
    catch (error) {
     console.log(error);
+    
   } 
+  
 };
 
 function verMas(datos){
@@ -60,6 +63,7 @@ function verMas(datos){
 						<br>						
 						<h1 class="tituloSwalMovie"> ${datos.results[i].title}</h1>
 						<br>
+            <h6 class="fechaEstreno">Fecha de Estreno: ${datos.results[i].release_date}</h6>
 						<p class="sinopsisMovie"> ${datos.results[i].overview}</p>
 						`,
             imageUrl: `https://image.tmdb.org/t/p/w500/${datos.results[i].poster_path}`,
@@ -74,5 +78,45 @@ function verMas(datos){
         });
       }
 }
+
+
+const buscarPeli = async ()=>{
+  let peticion = await fetch (`https://api.themoviedb.org/3/search/movie?api_key=ab615ab136c6a4dd4fdcea3d3afd2ef0&language=es-MX&page=${pagina}&query=${search.value}`)
+  let resultado = await peticion.json()
+  search.value;
+  let peliculas = "";
+      resultado.results.forEach((pelicula) => {
+        peliculas += `
+				<div class="pelicula">
+				<img class="poster" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}">
+				<h3 class="titulo">${pelicula.title}</h3>
+				<button class="btnVerMas">Ver más</button>		
+				</div>`;
+      });
+      let contenedor = document.getElementById("contenedor");
+      contenedor.innerHTML = peliculas;
+      verMas(resultado);
+  console.log(resultado);
+}
+form.addEventListener("submit",(search)=> {
+  search.preventDefault()
+  buscarPeli()
+})
+
+
+
+
+
+//  form.addEventListener ("submit", (datos)=> {
+//    datos.preventDefault();
+//    const buscar = search.value;
+//    if (buscar){
+//      cargarPeliculas(`https://api.themoviedb.org/3/search/movie?api_key=ab615ab136c6a4dd4fdcea3d3afd2ef0&language=es-MX&query=${buscar}`);
+    
+    
+//      console.log(cargarPeliculas(buscar))
+//    }
+//  })
+
 
 cargarPeliculas();

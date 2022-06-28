@@ -201,6 +201,10 @@ header {
   opacity: 1;
   filter: brightness(100%);
 }
+.fechaEstreno {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
 
 
 .paginacion {

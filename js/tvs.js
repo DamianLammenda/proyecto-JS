@@ -11,6 +11,7 @@ btnSiguiente.addEventListener("click", () => {
   if (pagina < 1000) {
     pagina += 1;
     cargarSeries();
+    document.body.scrollIntoView();
   }
 });
 
@@ -18,6 +19,7 @@ btnAnterior.addEventListener("click", () => {
   if (pagina > 1) {
     pagina -= 1;
     cargarSeries();
+    document.body.scrollIntoView();
   }
 });
 
@@ -47,29 +49,29 @@ const cargarSeries = async () => {
     console.log(error);
   }
 };
-function verMas(datos){
+function verMas(datos) {
   const btnVerMas = document.getElementsByClassName("btnVerMas");
-      for (let i = 0; i < btnVerMas.length; i++) {
-        btnVerMas[i].addEventListener("click", () => {
-          Swal.fire({
-            html: `<span class="imdb">IMDB: </span><span class="datosImdb">${datos.results[i].vote_average}</span> 
+  for (let i = 0; i < btnVerMas.length; i++) {
+    btnVerMas[i].addEventListener("click", () => {
+      Swal.fire({
+        html: `<span class="imdb">IMDB: </span><span class="datosImdb">${datos.results[i].vote_average}</span> 
 						<br>						
 						<h1 class="tituloSwalMovie"> ${datos.results[i].name}</h1>
 						<br>
             <h6 class="fechaEstreno">Fecha de Estreno: ${datos.results[i].first_air_date}</h6>
 						<p class="sinopsisMovie"> ${datos.results[i].overview}</p>
 						`,
-            imageUrl: `https://image.tmdb.org/t/p/w500/${datos.results[i].poster_path}`,
-            imageWidth: 250,
-            imageHeight: 400,
-            background: "black",
-            color: "#fff",
-            imageAlt: datos.results[i].title,
-            showConfirmButton: true,
-            confirmButtonText: "Cerrar",
-          });
-        });
-      }
+        imageUrl: `https://image.tmdb.org/t/p/w500/${datos.results[i].poster_path}`,
+        imageWidth: 250,
+        imageHeight: 400,
+        background: "black",
+        color: "#fff",
+        imageAlt: datos.results[i].name,
+        showConfirmButton: true,
+        confirmButtonText: "Cerrar",
+      });
+    });
+  }
 }
 
 const buscarSerie = async ()=>{
